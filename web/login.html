@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+</head>
+<body>
+用户名：<input type="text" name="username" id="username"><span id="sp1"></span><br>
+密码：<input type="password" id="password" name="password"><span id="sp2"></span><br>
+验证码：<input type="text" id="validateCode" name="validateCode"><img src="/day20/vs" ><br>
+<button id="btn">登录</button>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#username").blur(function () {
+            if ($(this).val().length==0){
+                $("#sp1").html("用户名不可为空！").css("color","red")
+            }else {
+                $.get("check1","username="+$(this).val())
+            }
+        })
+    })
+</script>
+</html>
